@@ -257,21 +257,21 @@ namespace AccidentalFish.AspNet.Identity.Azure
                 {
                     result.LazyLoginEvaluator = () =>
                     {
-                        Task<IList<UserLoginInfo>> loginInfoTask = GetLoginsAsync(result);
+                        var loginInfoTask = Task.Run(() => GetLoginsAsync(result));
                         loginInfoTask.Wait();
                         IList<UserLoginInfo> loginInfo = loginInfoTask.Result;
                         return loginInfo.Select(x => new TableUserLogin(result.Id, x.LoginProvider, x.ProviderKey));
                     };
                     result.LazyClaimsEvaluator = () =>
                     {
-                        Task<IList<Claim>> claimTask = GetClaimsAsync(result);
+                        var claimTask = Task.Run(() => GetClaimsAsync(result));
                         claimTask.Wait();
                         IList<Claim> loginInfo = claimTask.Result;
                         return loginInfo.Select(x => new TableUserClaim(result.Id, x.Type, x.Value));
                     };
                     result.LazyRolesEvaluator = () =>
                     {
-                        Task<IList<string>> roleTask = GetRolesAsync(result);
+                        var roleTask = Task.Run(() => GetRolesAsync(result));
                         roleTask.Wait();
                         IList<string> roles = roleTask.Result;
                         return roles.Select(x => new TableUserRole(result.Id, x));
