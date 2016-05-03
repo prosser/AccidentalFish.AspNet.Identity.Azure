@@ -92,7 +92,7 @@ namespace AccidentalFish.AspNet.Identity.Azure
         {
             if (user == null) throw new ArgumentNullException("user");
             user.SetPartitionAndRowKey();
-            TableUserIdIndex indexItem = new TableUserIdIndex(user.UserName.Base64Encode(), user.Id);
+            TableUserIdIndex indexItem = new TableUserIdIndex(user.UserName.ToLowerInvariant().Base64Encode(), user.Id);
             TableOperation indexOperation = TableOperation.Insert(indexItem);
 
             try
@@ -110,7 +110,7 @@ namespace AccidentalFish.AspNet.Identity.Azure
 
             if (!String.IsNullOrWhiteSpace(user.Email))
             {
-                TableUserEmailIndex emailIndexItem = new TableUserEmailIndex(user.Email.Base64Encode(), user.Id);
+                TableUserEmailIndex emailIndexItem = new TableUserEmailIndex(user.Email.ToLowerInvariant().Base64Encode(), user.Id);
                 TableOperation emailIndexOperation = TableOperation.Insert(emailIndexItem);
                 try
                 {
@@ -288,7 +288,7 @@ namespace AccidentalFish.AspNet.Identity.Azure
             return Task.Factory.StartNew(() =>
             {
                 TableQuery<TableUserIdIndex> indexQuery = new TableQuery<TableUserIdIndex>().Where(
-                    TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, userName.Base64Encode())).Take(1);
+                    TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, userName.ToLowerInvariant().Base64Encode())).Take(1);
                 IEnumerable<TableUserIdIndex> indexResults = _userIndexTable.ExecuteQuery(indexQuery);
                 TableUserIdIndex indexItem = indexResults.SingleOrDefault();
 
@@ -779,7 +779,7 @@ namespace AccidentalFish.AspNet.Identity.Azure
         {
             if (String.IsNullOrWhiteSpace(email)) return null;
 
-            TableOperation retrieveIndexOp = TableOperation.Retrieve<TableUserEmailIndex>(email.Base64Encode(), "");
+            TableOperation retrieveIndexOp = TableOperation.Retrieve<TableUserEmailIndex>(email.ToLowerInvariant().Base64Encode(), "");
             TableResult indexResult = await _userEmailIndexTable.ExecuteAsync(retrieveIndexOp);
             if (indexResult.Result == null) return null;
             TableUserEmailIndex userEmailIndex = (TableUserEmailIndex)indexResult.Result;
