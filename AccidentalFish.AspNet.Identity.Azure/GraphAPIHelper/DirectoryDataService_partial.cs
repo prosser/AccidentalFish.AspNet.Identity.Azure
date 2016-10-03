@@ -166,8 +166,8 @@ namespace Microsoft.WindowsAzure.ActiveDirectory
         /// <summary>
         /// Helper method for adding an object to users collection.
         /// </summary>
-        /// <param name="group"></param>
-        public void AddTousers(User user)
+        /// <param name="user"></param>
+        public void AddToUsers(User user)
         {
             base.AddObject("directoryObjects", user);
         }
@@ -175,17 +175,17 @@ namespace Microsoft.WindowsAzure.ActiveDirectory
         /// <summary>
         /// Helper method for adding an object to contacts collection.
         /// </summary>
-        /// <param name="group"></param>
-        public void AddTocontacts(Contact contact)
+        /// <param name="contact"></param>
+        public void AddToContacts(Contact contact)
         {
-            base.AddObject("directoryObjectss", contact);
+            base.AddObject("directoryObjects", contact);
         }
 
         /// <summary>
         /// Helper method for adding an object to roles collection.
         /// </summary>
-        /// <param name="group"></param>
-        public void AddToroles(Role role)
+        /// <param name="role"></param>
+        public void AddToRoles(Role role)
         {
             base.AddObject("directoryObjects", role);
         }
@@ -193,8 +193,8 @@ namespace Microsoft.WindowsAzure.ActiveDirectory
         /// <summary>
         /// Helper method for adding an object to servicePrincipals collection.
         /// </summary>
-        /// <param name="group"></param>
-        public void AddToserviceprincipals(ServicePrincipal servicePrincipal)
+        /// <param name="servicePrincipal"></param>
+        public void AddToServiceprincipals(ServicePrincipal servicePrincipal)
         {
             base.AddObject("directoryObjects", servicePrincipal);
         }
@@ -202,8 +202,8 @@ namespace Microsoft.WindowsAzure.ActiveDirectory
         /// <summary>
         /// Helper method for adding an object to tenantDetails collection.
         /// </summary>
-        /// <param name="group"></param>
-        public void AddTotenantDetails(TenantDetail tenantDetail)
+        /// <param name="tenantDetail"></param>
+        public void AddToTenantDetails(TenantDetail tenantDetail)
         {
             base.AddObject("directoryObjects", tenantDetail);
         }
