@@ -21,7 +21,7 @@ namespace AccidentalFish.AspNet.Identity.Azure
         public void SetPartitionAndRowKey()
         {
             PartitionKey = UserId;
-            RowKey = "";
+            RowKey = (UserId ?? "") + "_" + (LoginProvider ?? "");
         }
 
         public string LoginProvider { get; set; }
