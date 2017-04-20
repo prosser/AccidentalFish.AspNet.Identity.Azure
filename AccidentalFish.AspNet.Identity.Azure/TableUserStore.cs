@@ -452,7 +452,7 @@ namespace AccidentalFish.AspNet.Identity.Azure
                 TableQuery<TableUserLogin> query =
                     new TableQuery<TableUserLogin>().Where(
                         TableQuery.GenerateFilterCondition("PartitionKey",
-                            QueryComparisons.Equal, user.Id)).Take(1);
+                            QueryComparisons.Equal, user.Id));
                 IEnumerable<TableUserLogin> results = _loginTable.ExecuteQuery(query);
                 return (IList<UserLoginInfo>)results.Select(x => new UserLoginInfo(x.LoginProvider, x.ProviderKey)).ToList();
             });
