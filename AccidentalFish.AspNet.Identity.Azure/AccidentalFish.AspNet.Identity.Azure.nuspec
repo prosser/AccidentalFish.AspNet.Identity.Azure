@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Booyami.AccidentalFish.AspNet.Identity.Azure</id>
+    <version>1.0.0</version>
+    <title>ASP.Net 4.5 Azure Identity Helpers</title>
+    <authors>James Randall</authors>
+    <owners>James Randall</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>https://raw.github.com/JamesRandall/AccidentalFish.AspNet.Identity.Azure/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/JamesRandall/AccidentalFish.AspNet.Identity.Azure</projectUrl>
+    <iconUrl>http://www.accidentalfish.com/nugetidentity.png</iconUrl>
+    <description>Booyami patched ASP.Net identity utilities for Azure</description>
+    <summary>Includes a claims manager to map Azure AD groups into Authorize compatible roles and a drop in replacement identity store provider for MVC 5 / Web API projects to enable use of table storage, rather than SQL, for logins, roles, claims etc. with the ASP.Net Idendity Provider. See the project site / blog post for instructions on how to use.</summary>
+    <releaseNotes>Fixes for Azure emulator and user updates, also includes contributor fixes for partition and row keys and etags.</releaseNotes>
+    <copyright>Copyright 2013 Accidental Fish Ltd.</copyright>
+    <tags>azure table storage oauth web api owin aspnet claims claimsauthenticationmanager active directory role authorize authorization authentication</tags>
+    <dependencies>
+      <dependency id="Microsoft.AspNet.Identity.Core" version="2.2.1" />
+      <dependency id="Microsoft.Azure.KeyVault.Core" version="2.0.4" />
+      <dependency id="Microsoft.Data.Edm" version="5.8.2" />
+      <dependency id="Microsoft.Data.OData" version="5.8.2" />
+      <dependency id="Microsoft.Data.Services.Client" version="5.8.2" />
+      <dependency id="Microsoft.Owin" version="3.0.1" />
+      <dependency id="Microsoft.Owin.Security" version="3.0.1" />
+      <dependency id="Microsoft.Owin.Security.Cookies" version="3.0.1" />
+      <dependency id="Microsoft.Owin.Security.OAuth" version="3.0.1" />
+      <dependency id="Microsoft.WindowsAzure.ConfigurationManager" version="3.2.3" />
+      <dependency id="Newtonsoft.Json" version="10.0.3" />
+      <dependency id="Owin" version="1.0" />
+      <dependency id="System.ComponentModel.EventBasedAsync" version="4.3.0" />
+      <dependency id="System.Dynamic.Runtime" version="4.3.0" />
+      <dependency id="System.Linq.Queryable" version="4.3.0" />
+      <dependency id="System.Net.Requests" version="4.3.0" />
+      <dependency id="System.Spatial" version="5.8.2" />
+      <dependency id="WindowsAzure.Storage" version="8.3.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\Release\AccidentalFish.AspNet.Identity.Azure.dll" target="lib\net45\AccidentalFish.AspNet.Identity.Azure.dll" />
+  </files>
+</package>
